@@ -31,3 +31,11 @@ class DiscountCalculatorTests(unittest.TestCase):
         discount_calculator = DiscountCalculator()
         result = discount_calculator.calculate(100,10.0,'absolute')
         self.assertEqual(10.0, result)
+
+    def test_discount_percent_greater_than_hundred(self):
+        discount_calculator = DiscountCalculator()
+        self.assertRaises(ValueError, discount_calculator.calculate, 100,110,'percent')
+
+    def test_absolute_discount_greater_than_amount(self):
+        discount_calculator = DiscountCalculator()
+        self.assertRaises(ValueError, discount_calculator.calculate, 100,110,'absolute')
