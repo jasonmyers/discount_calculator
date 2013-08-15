@@ -15,5 +15,9 @@ class DiscountCalculatorTests(unittest.TestCase):
 
     def five_dollar_discount_test(self):
         discount_calculator = DiscountCalculator()
-        result = discount_calculator.calculate(250,5,'dollar')
+        result = discount_calculator.calculate(250,5,'absolute')
         self.assertEqual(5.0, result)
+
+    def test_invalid_discount_type(self):
+        discount_calculator = DiscountCalculator()
+        self.assertRaises(ValueError, discount_calculator.calculate, 100, 10, 'rupee')
