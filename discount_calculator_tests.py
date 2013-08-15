@@ -21,3 +21,13 @@ class DiscountCalculatorTests(unittest.TestCase):
     def test_invalid_discount_type(self):
         discount_calculator = DiscountCalculator()
         self.assertRaises(ValueError, discount_calculator.calculate, 100, 10, 'rupee')
+
+    def test_floating_point_discount_percentage(self):
+        discount_calculator = DiscountCalculator()
+        result = discount_calculator.calculate(100,10.0,'percent')
+        self.assertEqual(10.0, result)
+
+    def test_floating_point_absolute_amount(self):
+        discount_calculator = DiscountCalculator()
+        result = discount_calculator.calculate(100,10.0,'absolute')
+        self.assertEqual(10.0, result)
