@@ -12,3 +12,8 @@ class DiscountCalculatorTests(unittest.TestCase):
         discount_calculator = DiscountCalculator()
         result = discount_calculator.calculate(100,15,'percent')
         self.assertEqual(15.0, result)
+
+    def five_dollar_discount_test(self):
+        discount_calculator = DiscountCalculator()
+        result = discount_calculator.calculate(250,5,'dollar')
+        self.assertEqual(5.0, result)
